@@ -1,0 +1,47 @@
+# ======================
+# Root-level ignores
+# ======================
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS / Editor
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ======================
+# Backend
+# ======================
+/backend/node_modules
+/backend/.env
+/backend/generated/prisma
+
+# Build output
+/backend/dist
+/backend/dist-ssr
+
+# ======================
+# Frontend
+# ======================
+/frontend/node_modules
+/frontend/.env
+
+# Build output
+/frontend/dist
+/frontend/build
+/frontend/.next
+
+# Editor directories
+.vscode/*
+!.vscode/extensions.json
+.idea/
