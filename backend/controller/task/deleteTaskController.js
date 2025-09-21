@@ -18,7 +18,7 @@ async function deleteTaskController(req, res) {
     }
 
     // Fetch task by id
-    const task = await prisma.task.findUnique({ where: { id: Number(id) } });
+    const task = await prisma.task.findUnique({ where: { id} });
     if (!task) {
       throw new NotFoundError("Task not found");
     }
@@ -29,7 +29,7 @@ async function deleteTaskController(req, res) {
     }
 
     // Delete the task
-    await prisma.task.delete({ where: { id: Number(id) } });
+    await prisma.task.delete({ where: { id} });
 
     res.status(StatusCodes.OK).json({
       success: true,

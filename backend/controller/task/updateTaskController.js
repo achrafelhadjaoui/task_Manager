@@ -19,7 +19,7 @@ async function updateTaskController(req, res) {
     }
 
     // Fetch task by id
-    const task = await prisma.task.findUnique({ where: { id: Number(id) } });
+    const task = await prisma.task.findUnique({ where: { id } });
     if (!task) {
       throw new NotFoundError("Task not found");
     }
@@ -29,9 +29,10 @@ async function updateTaskController(req, res) {
       throw new ForbiddenError("You are not allowed to update this task");
     }
 
+    
     // Update the task
     const updatedTask = await prisma.task.update({
-      where: { id: Number(id) },
+      where: { id},
       data: {
         title: title || task.title,
         description: description || task.description,

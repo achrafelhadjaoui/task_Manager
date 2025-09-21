@@ -4,10 +4,10 @@ import { BadRequestError, UnauthorizedError } from "../../errors/index.js";
 
 async function createTaskController(req, res) {
   try {
-    const { title, description, status } = req.body;
-    const userId = req.user; // from middleware
+    const { title, description} = req.body;
+    const userId = req.user.id; 
 
-    if (!title || !description || !status) {
+    if (!title || !description ){
       throw new BadRequestError("Please fill all the fields");
     }
 
@@ -29,7 +29,6 @@ async function createTaskController(req, res) {
       data: {
         title,
         description,
-        status,
         userId,
       },
     });

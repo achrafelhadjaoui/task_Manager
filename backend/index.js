@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import 'dotenv/config'
+import cookieParser from "cookie-parser";
 import router from "./routes/index.js";
 
 const app = express();
@@ -11,6 +12,7 @@ app.listen(PORT, () => {console.log("Server running at http://localhost:" + PORT
 app.use(cors({
     origin: process.env.CORS_ORIGIN, 
     credentials: true,
-  }));
+}));
+app.use(cookieParser());
 app.use(express.json({extended: true,limit:"10mb"}));
 app.use("/api", router);

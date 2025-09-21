@@ -5,6 +5,7 @@ import { UnauthorizedError, ForbiddenError } from "../errors/index.js";
 const authToken = async (req, res, next) => {
   try {
     const token = req.cookies?.token;
+    console.log("Token from cookies:", token);
 
     if (!token) {
       throw new UnauthorizedError("Access token is missing");

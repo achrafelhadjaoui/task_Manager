@@ -1,7 +1,11 @@
 import React, { use } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 const Home = () => {
+  
+  const user = useSelector((state) => state.user);
+
 
   return (
     <div className="h-screen w-screen flex flex-col md:flex-row justify-center items-center px-6">
